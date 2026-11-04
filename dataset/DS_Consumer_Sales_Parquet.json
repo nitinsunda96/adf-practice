@@ -1,0 +1,29 @@
+{
+	"name": "DS_Consumer_Sales_Parquet",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "LS_PracticeStorage",
+			"type": "LinkedServiceReference"
+		},
+		"parameters": {
+			"runDate": {
+				"type": "string"
+			}
+		},
+		"annotations": [],
+		"type": "Parquet",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobStorageLocation",
+				"fileName": "data.parquet",
+				"folderPath": {
+					"value": "@concat('sales/', dataset().runDate)",
+					"type": "Expression"
+				},
+				"container": "consumer"
+			},
+			"compressionCodec": "snappy"
+		},
+		"schema": []
+	}
+}
