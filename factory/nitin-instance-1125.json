@@ -1,0 +1,15 @@
+{
+	"name": "nitin-instance-1125",
+	"properties": {
+		"trustModeClaimForMi": {
+			"value": "Disabled",
+			"editable": true
+		}
+	},
+	"location": "eastus",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "6266698a-6db1-45d6-800e-a8f024220be5",
+		"tenantId": "0048528e-93ff-400b-bcff-a8dcbf6ed86b"
+	}
+}
