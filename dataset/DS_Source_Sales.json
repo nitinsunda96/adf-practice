@@ -1,0 +1,24 @@
+{
+	"name": "DS_Source_Sales",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "LS_PracticeStorage",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobStorageLocation",
+				"fileName": "sales.csv",
+				"container": "source"
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\"",
+			"firstRowAsHeader": true,
+			"quoteChar": "\"",
+			"encodingName": "UTF-8"
+		},
+		"schema": []
+	}
+}

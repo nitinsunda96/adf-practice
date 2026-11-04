@@ -1,0 +1,55 @@
+{
+	"name": "PL_Feed_Sales",
+	"properties": {
+		"activities": [
+			{
+				"name": "Copy_Sales_To_Consumer",
+				"type": "Copy",
+				"dependsOn": [],
+				"policy": {
+					"retry": 2
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"source": {
+						"type": "DelimitedTextSource",
+						"storeSettings": {
+							"type": "AzureBlobStorageReadSettings"
+						},
+						"formatSettings": {
+							"type": "DelimitedTextReadSettings"
+						}
+					},
+					"sink": {
+						"type": "ParquetSink",
+						"storeSettings": {
+							"type": "AzureBlobStorageWriteSettings"
+						},
+						"formatSettings": {
+							"type": "ParquetWriteSettings"
+						}
+					}
+				},
+				"inputs": [
+					{
+						"referenceName": "DS_Source_Sales",
+						"type": "DatasetReference"
+					}
+				],
+				"outputs": [
+					{
+						"referenceName": "DS_Consumer_Sales_Parquet",
+						"type": "DatasetReference",
+						"parameters": {
+							"runDate": {
+								"value": "@formatDateTime(pipeline().TriggerTime, 'yyyy-MM-dd')",
+								"type": "Expression"
+							}
+						}
+					}
+				]
+			}
+		],
+		"annotations": []
+	}
+}
